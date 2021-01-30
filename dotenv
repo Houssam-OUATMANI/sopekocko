@@ -1,0 +1,7 @@
+# Fichier à renommer en .env
+
+DB_URI = "MONGO URI"
+
+DEV_PROD = "DEV"
+
+PORT = 3000
