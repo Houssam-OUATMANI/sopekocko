@@ -1,9 +1,9 @@
 Node Version v15.2.0
 
 start : {
-    npm start => node app.mjs
-    npm run dev => nodemon app.mjs
-    npm test => mocha
+    npm start => node app.mjs |
+    npm run dev => nodemon app.mjs |
+    npm test => mocha | 
 }
 
 syntax : {
