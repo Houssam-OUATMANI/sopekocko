@@ -2,21 +2,23 @@ import {Router} from 'express'
 const router = Router()
 
 import multer from '../middlewares/multer.middleware.mjs'
+import auth from '../middlewares/auth.middleware.mjs'
 //import auth from '../middlewares/'
 
-import { allSauces, oneSauce, createSauce, updateSauce , deleteSauce  } from '../controllers/sauce.controller.mjs'
+import { allSauces, oneSauce, createSauce, updateSauce , deleteSauce, likedSauce } from '../controllers/sauce.controller.mjs'
 
 
-router.get('/',allSauces)
+router.get('/',auth, allSauces)
 
-router.get('/:id', oneSauce)
+router.get('/:id',auth, oneSauce)
 
-router.post('/', multer, createSauce)
+router.post('/',auth , multer, createSauce)
 
-router.put('/:id', multer, updateSauce)
+router.post('/:id/like',auth, likedSauce)
 
-router.delete('/:id',  deleteSauce)
+router.put('/:id',auth, multer, updateSauce)
 
+router.delete('/:id',auth, deleteSauce)
 
 
 

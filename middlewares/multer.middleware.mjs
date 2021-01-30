@@ -1,10 +1,11 @@
 import multer from 'multer'
+import { v4 as uuidv4 } from 'uuid';
 
 
 const mimeTypes = {
     "image/png" : "png",
     "image/jpg" : "jpg",
-    "image/jpeg" : "jpg",
+    "image/jpeg" : "jpeg",
     "image/bmp" : "bmp",
     "image/gif" : "gif",
     "image/webp" : "webp"
@@ -15,10 +16,10 @@ const fileStore = multer.diskStorage({
         cb(null, 'public/images')
     },
     filename: (req ,file , cb) => {
-        const imageName = file.originalname.split(' ').join('_').toLowerCase()
+        const imageName = file.originalname.split(' ').join('_').toLowerCase().split(`.${mimeTypes[file.mimetype]}`)[0]
         console.log(imageName)
         const imageExt = mimeTypes[file.mimetype]
-        cb(null ,`${imageName}_${Date.now()}.${imageExt}`)
+        cb(null ,`${imageName}_${uuidv4()}.${imageExt}`)
     }
 })
 
