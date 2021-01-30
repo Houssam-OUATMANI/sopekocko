@@ -11,7 +11,9 @@ try{
     if(req.body.userId && req.body.userId !== userId){
        throw  new Error("Echec de l'authentification") 
     }
-    else next()
+    else{
+        next()
+    }
 }
 catch(err) {
         throw err
