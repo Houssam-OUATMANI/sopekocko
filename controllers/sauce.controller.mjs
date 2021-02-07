@@ -114,7 +114,6 @@ const likedSauce = (req ,res) => {
     }
        }
        else if (like === 0){
-           console.log(like)
          if (sauce.usersLiked.includes(userId)){
             Sauce.updateOne({_id :id}, {$pull : {usersLiked : userId}, $inc : {likes : -1}, _id : id})
             .then(() => res.status(201).json({ message: 'Liked' }))
