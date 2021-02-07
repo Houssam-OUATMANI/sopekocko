@@ -2,10 +2,10 @@
   "name": "sopekocko_es6",
   "version": "1.0.0",
   "description": "",
-  "main": "app.mjs",
+  "main": "server.mjs",
   "scripts": {
-    "start": "node app.mjs",
-    "dev": "nodemon app.mjs",
+    "start": "node server.mjs",
+    "dev": "nodemon server.mjs",
     "test": "mocha"
   },
   "keywords": [],

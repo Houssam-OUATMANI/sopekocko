@@ -11,13 +11,13 @@ const mimeTypes = {
     "image/webp" : "webp"
 }
 
+//  traitement des fichiers images
 const fileStore = multer.diskStorage({
     destination: (req , file , cb) => {
         cb(null, 'public/images')
     },
     filename: (req ,file , cb) => {
         const imageName = file.originalname.split(' ').join('_').toLowerCase().split(`.${mimeTypes[file.mimetype]}`)[0]
-        console.log(imageName)
         const imageExt = mimeTypes[file.mimetype]
         cb(null ,`${imageName}_${uuidv4()}.${imageExt}`)
     }

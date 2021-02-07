@@ -13,24 +13,31 @@ import dbConnection from './models/connection/db.connection.mjs'
 import userRoutes from './routes/user.routes.mjs'
 import sauceRoutes from './routes/sauce.routes.mjs'
 
+
 app.use(cors())
 app.use(helmet())
 dotenv.config()
+
+// BDD 
 dbConnection()
 
-const { PORT, DEV_PROD } = process.env
+
+// log en mode dev
+const {  DEV_PROD } = process.env
 if (DEV_PROD === "DEV"){
     app.use(morgan('tiny'))
 }
 
+
+// parse json
 app.use(express.json())
+// static folder
 app.use('/public', express.static('./public'))
 
 
+ // routes middelwares
 app.use('/api/auth', userRoutes)
 app.use('/api/sauces', sauceRoutes)
 
-console.log(PORT)
 
-
-app.listen(PORT || 3000, ()=> console.log(`Je tourne sur le port ${PORT ? PORT : 3000}`)) 
+export default app
