@@ -94,19 +94,19 @@ const deleteSauce = (req ,res)=> {
 
 // likes
 const likedSauce = (req ,res) => {
-    const {like , userId} = req.body
+    const { like , userId } = req.body
     const { id } = req.params
 
     Sauce.findById(req.params.id)
     .then((sauce)=> {
        if(like === 1){
         if(! sauce.usersLiked.includes(userId)){
-            Sauce.updateOne({_id :id}, {$push : {usersLiked : userId}, $inc : {likes : 1}, _id : id})
+            Sauce.updateOne({_id: id }, {$push : { usersLiked : userId }, $inc : {likes : 1}, _id : id})
             .then(() => res.status(201).json({ message: 'Liked!' }))
             .catch((error) => {res.status(400).json({error})})
         }
        }
-       else if (like === -1){
+       else if (like === -1){ 
         if(! sauce.usersDisliked.includes(userId)){
             Sauce.updateOne({_id :id}, {$push : {usersDisliked : userId}, $inc : {dislikes : 1}, _id : id})
             .then(() => res.status(201).json({ message: 'Disliked!' }))

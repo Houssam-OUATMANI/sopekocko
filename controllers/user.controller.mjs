@@ -4,6 +4,7 @@
   import User from '../models/schema/user.schema.mjs'
   import userValidation from '../validation/user.validation.mjs'
   
+ // Inscription vtrl 
   const signup = (req ,res) => {
     const { password, email } = req.body
 
@@ -26,7 +27,7 @@
 }
 
 
-/*****  login ctrl  ******/
+/*****  connexion ctrl  ******/
  const login =(req ,res) => {
     const {email , password} = req.body
 
