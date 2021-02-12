@@ -12,4 +12,10 @@ la partie front est deja faite , le but est d'implementer  le back.
 ### CONFIGURATION
 
 1. npm install => TELECHARGER TOUTES LES DEPENDENCES DU PROJET
-2. fichier dotenv à renommer en .env et et passer votre Mongo_URi
+2. fichier dotenv à renommer en .env et et passer votre Mongo_URi dans la variable DB_URI
+
+### DEMMARAGE : 
+
+* npm start :   node server.mjs
+* npm run dev : nodemon server.mjs
+* npm test : mocha
