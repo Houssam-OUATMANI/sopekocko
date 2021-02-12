@@ -1,17 +1,10 @@
-Node Version v15.2.0 <br/>
-<br/>
-install dependencies : <br/>
-npm i
-<br/>
-start : { <br/>
-    npm start => node app.mjs | <br/>
-    npm run dev => nodemon app.mjs | <br/>
-    npm test => mocha | <br/>
-}<br/>
-<br/>
-syntax : {<br/>
-    ES6, <br/>
-    import , export module <br/>
-}
+# OPENCLASSROOMS DEV WEB
+
+## PROJET 6 IMPLEMENTAION D'UNE API NODE JS
+
+la partie front est deja faite , le but est d'implementer  le back.
 
 
+### TECHNOS : 
+
+![NODE JS](https://icon-icons.com/icons2/2107/PNG/96/file_type_node_icon_130301.png) ![EXPRESS JS](https://icon-icons.com/icons2/2415/PNG/96/express_original_logo_icon_146527.png) ![MONGODB](https://icon-icons.com/icons2/2415/PNG/96/mongodb_original_wordmark_logo_icon_146425.png)
