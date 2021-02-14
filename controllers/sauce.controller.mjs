@@ -59,7 +59,7 @@ const updateSauce = (req ,res)=> {
             updatedSauce = { ...body }
              console.log(updatedSauce)
              Sauce.updateOne({_id : params.id}, {...updatedSauce, _id : params.id})
-             .then(() => res.status(204).json({message : "updated"}))
+             .then(() => res.status(200).json({message : "updated"}))
              .catch(error => res.status(400).json({error}))
        }else{
             updatedSauce ={
@@ -102,14 +102,14 @@ const likedSauce = (req ,res) => {
        if(like === 1){
         if(! sauce.usersLiked.includes(userId)){
             Sauce.updateOne({_id: id }, {$push : { usersLiked : userId }, $inc : {likes : 1}, _id : id})
-            .then(() => res.status(201).json({ message: 'Liked!' }))
+            .then(() => res.status(200).json({ message: 'Liked!' }))
             .catch((error) => {res.status(400).json({error})})
         }
        }
        else if (like === -1){ 
         if(! sauce.usersDisliked.includes(userId)){
             Sauce.updateOne({_id :id}, {$push : {usersDisliked : userId}, $inc : {dislikes : 1}, _id : id})
-            .then(() => res.status(201).json({ message: 'Disliked!' }))
+            .then(() => res.status(200).json({ message: 'Disliked!' }))
             .catch((error) => {res.status(400).json({error})})
     }
        }
@@ -117,12 +117,12 @@ const likedSauce = (req ,res) => {
            console.log(like)
          if (sauce.usersLiked.includes(userId)){
             Sauce.updateOne({_id :id}, {$pull : {usersLiked : userId}, $inc : {likes : -1}, _id : id})
-            .then(() => res.status(201).json({ message: 'Liked' }))
+            .then(() => res.status(200).json({ message: 'Liked' }))
             .catch((error) => {res.status(400).json({error})})
          }
          else if(sauce.usersDisliked.includes(userId)){
             Sauce.updateOne({_id :id}, {$pull : {usersDisliked : userId}, $inc : {dislikes : -1}, _id : id})
-            .then(() => res.status(201).json({ message: 'Liked' }))
+            .then(() => res.status(200).json({ message: 'Liked' }))
             .catch((error) => {res.status(400).json({error})})
          }
        }
